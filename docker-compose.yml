@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ecommerce-3it
+      MYSQL_DATABASE: ecommerce
+      MYSQL_USER: user-ecommerce
+      MYSQL_PASSWORD: ecommerce-3it
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql-network
+
+networks:
+  mysql-network:
+    driver: bridge
